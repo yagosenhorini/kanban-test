@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -13,8 +14,34 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "@Components/*": ["./src/components/*"],
+      "@Containers/*": ["./src/containers/*"],
+      "@Constants/*": ["./src/constants/*"],
+      "@Contexts/*": ["./src/contexts/*"],
+      "@Core/*": ["./src/core/*"],
+      "@HOC/*": ["./src/hoc/*"],
+      "@Hooks/*": ["./src/hooks/*"],
+      "@Icons/*": ["./src/icons/*"],
+      "@Layouts/*": ["./src/layouts/*"],
+      "@Pages/*": ["./src/pages/*"],
+      "@Resources/*": ["./src/resources/*"],
+      "@Services/*": ["./src/services/*"],
+      "@Store/*": ["./src/store/*"],
+      "@Styles/*": ["./src/styles/*"],
+      "@Types/*": ["./src/types/*"],
+      "@Utils/*": ["./src/utils/*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "public",
+    "dist",
+    "build",
+    "assets",
+    "vendor",
+    "node_modules"
+  ]
 }
