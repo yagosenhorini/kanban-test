@@ -1,7 +1,8 @@
+import { ButtonProps } from '@/types/Button';
 import React from 'react';
 
-const Button = () => (
-  <button type="button">Enviar</button>
+const Button: React.FC<ButtonProps> = ({ text }) => (
+  <button type="button">{text}</button>
 );
 
 export default Button;

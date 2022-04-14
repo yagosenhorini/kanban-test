@@ -6,5 +6,5 @@ describe('Button component', () => {
   it('Should render the button', () => {
     const component = render(<Button />);
     expect(component).toBeTruthy();
-  })
+  });
 })
