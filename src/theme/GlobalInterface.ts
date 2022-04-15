@@ -9,6 +9,8 @@ declare module 'styled-components' {
 
     colors: {
       main: string,
+      white: string,
+      black: string,
     }
 
     fontPrimary: string,

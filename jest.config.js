@@ -26,7 +26,7 @@ module.exports = {
   coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
-  coveragePathIgnorePatterns: ['/node_modules/', 'styled.tsx', 'styled.ts'],
+  coveragePathIgnorePatterns: ['/node_modules/', 'styled.tsx', 'styled.ts', 'GlobalTheme.ts'],
 
   // Indicates which provider should be used to instrument code for coverage
   // coverageProvider: 'babel',
@@ -87,7 +87,7 @@ module.exports = {
     '@Hooks/(.*)': '<rootDir>/src/hooks/$1',
     '@Resources/(.*)': '<rootDir>/src/resources/$1',
     '@Utils/(.*)': '<rootDir>/src/utils/$1',
-    '@Styles/(.*)': '<rootDir>/src/styles/$1',
+    '@Theme/(.*)': '<rootDir>/src/theme/$1',
     '@Icons/(.*)': '<rootDir>/src/icons/$1',
     '@Services/(.*)': '<rootDir>/src/services/$1',
   },
