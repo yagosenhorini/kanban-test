@@ -1,13 +1,12 @@
-import { DefaultTheme } from 'styled-components';
+import { DefaultTheme } from 'styled-components'
 
-import { rem, rgb } from 'polished';
+import { rem } from 'polished'
 
 const GlobalTheme: DefaultTheme = {
   outline: 'none',
   margin: `${rem(0)}`,
   padding: `${rem(0)}`,
   boxSizing: 'border-box',
-
 
   colors: {
     main: '#256DB1',
@@ -17,6 +16,6 @@ const GlobalTheme: DefaultTheme = {
 
   fontPrimary: 'Arial',
   fontSecondary: 'Roboto',
-};
+}
 
-export { GlobalTheme };
+export { GlobalTheme }

@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "yarn lint && next build",
     "start": "next start",
-    "lint:js": "eslint --fix --color",
+    "lint:js": "eslint ./**/*.{ts,tsx} --fix",
     "lint:css": "stylelint src/**/*.{ts,tsx}",
     "lint": "yarn lint:js && yarn lint:css",
     "commit": "git-cz",
