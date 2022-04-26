@@ -34,7 +34,7 @@
     "@babel/preset-typescript": "^7.16.5",
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
-    "@next/eslint-plugin-next": "^12.0.7",
+    "@next/eslint-plugin-next": "^12.1.5",
     "@testing-library/dom": "^8.11.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.0.1",

@@ -1,5 +1,4 @@
 const path = require('path')
-
 /**
  * ESLint configuration
  * http://eslint.org/docs/user-guide/configuring
@@ -12,6 +11,7 @@ module.exports = {
     jest: true,
   },
   extends: [
+    'plugin:@next/next/recommended',
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:ramda/recommended',
