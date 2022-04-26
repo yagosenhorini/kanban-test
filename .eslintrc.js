@@ -1,5 +1,4 @@
-const path = require('path');
-const { off } = require('process');
+const path = require('path')
 
 /**
  * ESLint configuration
@@ -13,8 +12,6 @@ module.exports = {
     jest: true,
   },
   extends: [
-    'airbnb',
-    'airbnb/hooks',
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:ramda/recommended',
@@ -79,4 +76,4 @@ module.exports = {
       },
     },
   },
-};
+}
