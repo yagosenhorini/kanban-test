@@ -5,9 +5,11 @@
   "scripts": {
     "preinstall": "npx use-yarn",
     "dev": "next dev",
-    "build": "next build",
+    "build": "yarn lint && next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint:js": "eslint --fix --color",
+    "lint:css": "stylelint src/**/*.{ts,tsx}",
+    "lint": "yarn lint:js && yarn lint:css",
     "commit": "git-cz",
     "test": "jest -u",
     "test:watch": "jest --watch",
