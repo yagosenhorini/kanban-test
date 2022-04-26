@@ -1,11 +1,13 @@
 import React from 'react';
 
-import { FooterProps } from '@Types/Footer';
-
 import * as S from './styled';
 
-const Footer: React.FC<FooterProps> = () => (
-  <S.Footer>&copy; Senhorini Consultoria e Serviços - <span>2022</span></S.Footer>
-);
+const Footer = () => {
+  const year = new Date().getFullYear();
+
+  return (
+    <S.Footer>&copy;&nbsp;Senhorini Consultoria e Serviços -&nbsp;{year}</S.Footer>
+  )
+}
 
 export default Footer;

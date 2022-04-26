@@ -1,10 +1,13 @@
 import React from 'react';
+
 import { HeaderProps } from '@Types/Header';
 
+import * as S from './styled';
+
 const Header = ({ children }: HeaderProps) => (
-  <header>
+  <S.Header>
     {children}
-  </header>
+  </S.Header>
 );
 
 export default Header;
