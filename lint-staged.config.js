@@ -6,7 +6,6 @@ module.exports = {
   '**/*.(ts|tsx|js)': (filenames) => [
     `yarn lint:js`,
     `yarn prettier --write ${filenames.join(' ')}`,
-    `yarn test`,
   ],
 
   // Format MarkDown and JSON
