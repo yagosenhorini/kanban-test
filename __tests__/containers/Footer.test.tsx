@@ -10,7 +10,8 @@ describe('Footer component', () => {
     const component = render(
       <ThemeProvider theme={theme}>
         <Footer />
-      </ThemeProvider>);
+      </ThemeProvider>
+    );
     expect(component).toBeTruthy();
   });
-})
+});

@@ -8,9 +8,18 @@
     "promise"
   ],
   "extends": [
+    "airbnb",
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
-    "prettier"
+    "prettier",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:ramda/recommended",
+    "plugin:promise/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "eslint:recommended",
+    "next"
   ],
   "rules": {
     // I suggest you add those two rules:
