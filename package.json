@@ -17,6 +17,7 @@
     "postinstall": "husky install"
   },
   "dependencies": {
+    "@svgr/webpack": "^6.2.1",
     "next": "12.1.5",
     "next-seo": "^5.4.0",
     "polished": "^4.2.2",

@@ -1,28 +1,40 @@
 {
-  "presets": ["next/babel"],
-  "plugins": [
+  "presets": [
+    "next/babel",
+    "@babel/preset-typescript"
+  ],
+    "plugins": [
+    "inline-react-svg",
     [
-      "styled-components",
+      "module-resolver",
       {
-        "ssr": true
-      }
-    ],
-    [
-      "inline-react-svg",
-      {
-        "svgo": {
-          "plugins": [
-            {
-              "removeAttrs": {
-                "attrs": "(data-name)"
-              }
-            },
-            {
-              "cleanupIDs": true
-            }
-          ]
+        "root": ["./"],
+        "alias": {
+          "@Assets": "./src/assets"
         }
       }
     ]
-  ]
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        ["styled-components", {
+          "ssr": true,
+          "displayName": true,
+          "preprocess": false // Debug styled only on dev mode
+        }]
+      ]
+    },
+    "production": {
+      "plugins": [
+        "@babel/plugin-transform-react-constant-elements",
+        "@babel/plugin-transform-react-inline-elements",
+        "transform-react-remove-prop-types",
+        "babel-plugin-jsx-remove-data-test-id",
+        ["styled-components", {
+          "displayName": false
+        }]
+      ]
+    }
+  }
 }

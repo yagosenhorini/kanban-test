@@ -10,4 +10,10 @@ describe('Price Formatter util', () => {
       priceFormatter('', 'BRL');
     }).toThrowError();
   });
+
+  it('should throw error if an empty array was passed in parameter', () => {
+    expect(() => {
+      priceFormatter([], 'BRL');
+    }).toThrowError();
+  });
 });
