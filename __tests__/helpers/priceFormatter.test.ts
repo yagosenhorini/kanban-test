@@ -2,16 +2,12 @@ import { priceFormatter } from '@Utils/priceFormatter';
 
 describe('Price Formatter util', () => {
   it('should format a value to brazillian currency', () => {
-    const value = 350;
-    const currency = 'BRL';
-    expect(priceFormatter(value, currency)).toBe('R$ 350,00');
+    expect(priceFormatter(350, 'BRL')).toBe('R$\xa0350,00');
   });
-  it('should not format an empty value', () => {
-    const value = '';
-    const currency = 'BRL';
 
+  it('should not format an empty value', () => {
     expect(() => {
-      priceFormatter(value, currency)
+      priceFormatter('', 'BRL');
     }).toThrowError();
-  })
-})
+  });
+});
