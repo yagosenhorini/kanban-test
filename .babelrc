@@ -1,16 +1,13 @@
 {
-  "presets": [
-    "next/babel",
-    "@babel/preset-typescript"
-  ],
-    "plugins": [
+  "presets": ["next/babel", "@babel/preset-typescript"],
+  "plugins": [
     "inline-react-svg",
     [
       "module-resolver",
       {
         "root": ["./"],
         "alias": {
-          "@Assets": "./src/assets"
+          "@Icons": "./src/assets/icons"
         }
       }
     ]
@@ -18,11 +15,14 @@
   "env": {
     "development": {
       "plugins": [
-        ["styled-components", {
-          "ssr": true,
-          "displayName": true,
-          "preprocess": false // Debug styled only on dev mode
-        }]
+        [
+          "styled-components",
+          {
+            "ssr": true,
+            "displayName": true,
+            "preprocess": false // Debug styled only on dev mode
+          }
+        ]
       ]
     },
     "production": {
@@ -31,9 +31,13 @@
         "@babel/plugin-transform-react-inline-elements",
         "transform-react-remove-prop-types",
         "babel-plugin-jsx-remove-data-test-id",
-        ["styled-components", {
-          "displayName": false
-        }]
+        [
+          "styled-components",
+          {
+            "displayName": false,
+            "ssr": true
+          }
+        ]
       ]
     }
   }

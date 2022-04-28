@@ -1,7 +1,7 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 
-import CameraIcon from '@Assets/camera.svg';
+import CameraIcon from '@Icons/camera.svg';
 
 const Home = () => (
   <>
