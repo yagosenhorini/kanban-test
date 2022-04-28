@@ -10,7 +10,6 @@
   "extends": [
     "airbnb",
     "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended",
     "prettier",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
@@ -23,8 +22,6 @@
   ],
   "rules": {
     // I suggest you add those two rules:
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "error",
     "linebreak-style": "off", // Avoid LF/CRLF on Win/Linux/Mac
     "import/no-unresolved": "off",
     "import/extensions": "off",
