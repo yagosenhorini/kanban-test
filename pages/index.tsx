@@ -1,14 +1,14 @@
 import React from 'react';
+import { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 
-import CameraIcon from '@Icons/camera.svg';
+import LoginPage from '@Pages/Login';
 
-const Home = () => (
+const Login: NextPage = () => (
   <>
     <NextSeo title="Yago dos Santos Senhorini - Serviços e Consultoria de Tecnologia" />
-    <h1>Welcome</h1>
-    <CameraIcon />
+    <LoginPage />
   </>
 );
 
-export default Home;
+export default Login;
