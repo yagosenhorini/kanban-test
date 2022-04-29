@@ -4,8 +4,9 @@ import useThunkReducer from 'react-hook-thunk-reducer';
 import { reducer, initialState } from './auth/reducer';
 
 import { AuthContext, AuthDispatchContext } from './Contexts';
+import { AuthProps } from './types';
 
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children }: AuthProps) => {
   const [state, dispatch] = useThunkReducer(reducer, initialState);
 
   return (
