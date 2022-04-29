@@ -15,8 +15,8 @@ describe('<Input />', () => {
         placeholder="test"
         testId="input-component"
         onChange={mockedOnChange}
-        error={false}
-        success={false}
+        error=""
+        name="name"
         type="text"
         id="test"
       />

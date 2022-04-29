@@ -12,6 +12,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ) => (
     <S.Input
       ref={ref}
+      id={id}
       type={type}
       placeholder={placeholder}
       data-testid={testId}
