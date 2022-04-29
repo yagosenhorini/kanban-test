@@ -23,6 +23,7 @@
   "rules": {
     // I suggest you add those two rules:
     "linebreak-style": "off", // Avoid LF/CRLF on Win/Linux/Mac
+    "arrow-body-style": ["error", "as-needed"],
     "import/no-unresolved": "off",
     "import/extensions": "off",
     "import/prefer-default-export": "off", // For single Styled Component exports

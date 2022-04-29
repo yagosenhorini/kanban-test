@@ -1,7 +1,7 @@
 import React from 'react';
-
 import { FieldErrors, useForm } from 'react-hook-form';
 
+import Form from '@Components/Form';
 import { useAuthDispatch, signIn, useAuthState } from '@Contexts/AuthContext';
 
 import { LoginForm } from './types';
@@ -21,7 +21,7 @@ const LoginPage = () => {
   });
 
   return (
-    <form onSubmit={onSubmit}>
+    <Form onSubmit={onSubmit}>
       <input
         {...register('email', {
           required: 'Campo obrigatório',
@@ -45,7 +45,7 @@ const LoginPage = () => {
         placeholder="exemplo@exemplo.com"
       />
       <button type="submit">{isLoading ? 'Enviando...' : 'Enviar'}</button>
-    </form>
+    </Form>
   );
 };
 
