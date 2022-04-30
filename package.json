@@ -10,7 +10,7 @@
     "lint:js": "eslint './**/*.{ts,tsx}' --fix",
     "lint:css": "stylelint src/**/*.{ts,tsx}",
     "lint": "yarn lint:js && yarn lint:css",
-    "commit": "git-cz",
+    "commit": "git-cz && yarn test",
     "test": "jest -u",
     "test:watch": "jest --watch",
     "test:end-to-end": "cypress open",
