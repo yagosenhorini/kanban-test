@@ -11,6 +11,8 @@ declare module 'styled-components' {
       main: string;
       white: string;
       black: string;
+      red: string;
+      darkRed: string;
     };
 
     fontPrimary: string;

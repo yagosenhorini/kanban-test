@@ -2,8 +2,12 @@ import React from 'react';
 
 import { ButtonProps } from '@Types/Button';
 
-const Button: React.FC<ButtonProps> = ({ text }) => (
-  <button type="button">{text}</button>
+import * as S from './styled';
+
+const Button = ({ children, ...props }: ButtonProps) => (
+  <S.Button type="submit" {...props}>
+    {children}
+  </S.Button>
 );
 
 export default Button;

@@ -1,6 +1,6 @@
-import { DefaultTheme } from 'styled-components'
+import { DefaultTheme } from 'styled-components';
 
-import { rem } from 'polished'
+import { rem } from 'polished';
 
 const GlobalTheme: DefaultTheme = {
   outline: 'none',
@@ -12,10 +12,12 @@ const GlobalTheme: DefaultTheme = {
     main: '#256DB1',
     white: '#fff',
     black: '#000',
+    red: '##f80306',
+    darkRed: '#82090f',
   },
 
   fontPrimary: 'Arial',
   fontSecondary: 'Roboto',
-}
+};
 
-export { GlobalTheme }
+export { GlobalTheme };

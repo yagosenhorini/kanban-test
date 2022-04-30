@@ -1,5 +1,8 @@
-export type ButtonProps = {
+import React from 'react';
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
-  text?: string;
   onPress?: () => void;
-};
+  children?: React.ReactNode;
+}

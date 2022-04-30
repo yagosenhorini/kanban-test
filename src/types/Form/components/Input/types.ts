@@ -11,6 +11,6 @@ export type InputProps = {
   placeholder: string;
 };
 
-export type InputType = InputProps &
-  React.HTMLProps<HTMLInputElement> &
-  React.HTMLAttributes<HTMLInputElement>;
+// export type InputType = InputProps &
+//   React.HTMLProps<HTMLInputElement> &
+//   React.HTMLAttributes<HTMLInputElement>;
