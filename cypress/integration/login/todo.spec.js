@@ -1,33 +1,46 @@
 /// <reference types="cypress" />
 
-// Welcome to Cypress!
-//
-// This spec file contains a variety of sample tests
-// for a todo list app that are designed to demonstrate
-// the power of writing tests in Cypress.
-//
-// To learn more about how Cypress works and
-// what makes it such an awesome testing tool,
-// please read our getting started guide:
-// https://on.cypress.io/introduction-to-cypress
+cy.on('uncaught:exception', (err, runnable) => {
+  expect(err.message).to.include('Failed to get user');
+  return false;
+});
 
-describe('example to-do app', () => {
+describe('Login Page flow', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000');
   });
 
-  it('Should fill the inputs and send the form', () => {
+  it('Should fill the inputs correctly and send the form', () => {
+    const email = 'yagosenhorini30@gmail.com';
+    const password = '123';
+
     cy.get('[data-testid="email-input-component"]')
       .should('have.length', 1)
-      .type('yagosenhorini30@gmail.com');
+      .type(email);
     cy.get('[data-testid="password-input-component"]')
       .should('have.length', 1)
-      .type('123');
+      .type(password);
     cy.get('[data-testid="form-component"]').should('have.length', 1).submit();
 
     cy.get('[data-testid="email-input-component"]').should((element) => {
-      expect(element.val()).to.equal('yagosenhorini30@gmail.com');
+      expect(element.val()).to.equal(email);
     });
+    cy.get('[data-testid="password-input-component"]').should((element) => {
+      expect(element.val()).to.equal(password);
+    });
+  });
+
+  it('Should fill the inputs wrongly and send the form', () => {
+    const email = 'yagosenhorini@gmail.com';
+    const password = '123';
+
+    cy.get('[data-testid="email-input-component"]')
+      .should('have.length', 1)
+      .type(email);
+    cy.get('[data-testid="password-input-component"]')
+      .should('have.length', 1)
+      .type(password);
+    cy.get('[data-testid="form-component"]').should('have.length', 1).submit();
   });
 
   xit('can add new todo items', () => {

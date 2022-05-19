@@ -27,6 +27,7 @@
     "react-dom": "18.0.0",
     "react-hook-form": "^7.22.1",
     "react-hook-thunk-reducer": "^0.2.4",
+    "react-responsive": "^9.0.0-beta.8",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
