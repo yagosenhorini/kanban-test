@@ -26,7 +26,6 @@ const LoginPage = () => {
   const onSubmit = handleSubmit(async (data: LoginForm) => {
     try {
       await authDispatch(signIn(data));
-      alert('Usuário logado');
     } catch (err) {
       throw new Error('Failed to get user');
     }
