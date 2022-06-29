@@ -15,7 +15,7 @@
     "jsx": "preserve",
     "incremental": true,
     "pretty": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "noImplicitAny": false,
     "paths": {
       "@/*": ["./src/*"],
@@ -31,7 +31,6 @@
       "@Pages/*": ["./src/pages/*"],
       "@Resources/*": ["./src/resources/*"],
       "@Services/*": ["./src/services/*"],
-      "@Settings/*": ["./src/settings/*"],
       "@Store/*": ["./src/store/*"],
       "@Theme/*": ["./src/theme/*"],
       "@Types/*": ["./src/types/*"],

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render } from '@testing-library/react';
+import { render, act } from '@testing-library/react';
 import { fireEvent } from '@testing-library/dom';
 import { ThemeProvider } from 'styled-components';
 
@@ -29,11 +29,12 @@ describe('LoginPage', () => {
     const $inputEmail = await findByTestId('email-input-component');
     const $inputPassword = await findByTestId('password-input-component');
 
-    fireEvent.change($inputEmail, {
-      target: { value: 'yagosenhorini@gmail.com' },
+    await act(async () => {
+      await fireEvent.change($inputEmail, {
+        target: { value: 'yagosenhorini@gmail.com' },
+      });
+      await fireEvent.change($inputPassword, { target: { value: '123' } });
+      await fireEvent.submit($form);
     });
-    fireEvent.change($inputPassword, { target: { value: '123' } });
-
-    fireEvent.submit($form);
   });
 });
