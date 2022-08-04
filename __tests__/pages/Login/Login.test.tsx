@@ -13,6 +13,12 @@ import { mockApi } from '@Services/index';
 
 const mockAxios = new MockAdapter(mockApi);
 
+jest.mock('next/router', () => ({
+  useRouter: () => ({
+    push: jest.fn(),
+  }),
+}));
+
 describe('LoginPage', () => {
   const componentToRender = (
     <AuthProvider>
@@ -95,7 +101,7 @@ describe('LoginPage', () => {
     });
 
     await waitFor(async () => {
-      expect((await findAllByTestId('error-message')).length).toBe(2);
+      expect(await findAllByTestId('error-message')).toHaveLength(2);
     });
   });
 });
