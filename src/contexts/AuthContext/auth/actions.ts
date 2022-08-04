@@ -1,9 +1,10 @@
 import React from 'react';
+import axios, { AxiosError } from 'axios';
 
-import { mockApi } from '@Services/index';
+import { mockApi, setApiToken } from '@Services/index';
 
 import * as t from './types';
-import { IUser } from './interfaces';
+import { Login } from './interfaces';
 
 export const setSuccess = (success: boolean) => ({
   type: t.SUCCESS,
@@ -20,30 +21,23 @@ export const setError = (error: boolean) => ({
   payload: error,
 });
 
-export const setUser = (user: IUser) => ({
+export const setUser = (user: Login) => ({
   type: t.USER,
   payload: user,
 });
 
 export const signIn =
-  (data: { email: string }) => async (dispatch: React.Dispatch<any>) => {
-    await dispatch(setLoading(true));
+  (form: Login) => async (dispatch: React.Dispatch<any>) => {
+    dispatch(setLoading(true));
     try {
-      const { data: response } = await mockApi.get(
-        `/register?email=${data.email}`
-      );
-      const user: IUser = {
-        name: response[0].nome,
-        email: response[0].email,
-      };
-
-      localStorage.setItem('user', JSON.stringify(user));
-
-      await dispatch(setUser(user));
+      await mockApi.post('login', form).then(({ data }) => setApiToken(data));
     } catch (err) {
-      await dispatch(setError(true));
-      throw new Error('Failed to login');
+      dispatch(setError(true));
+      const error = err as Error | AxiosError;
+      if (!axios.isAxiosError(error)) {
+        throw new Error('Failed to do login', error);
+      }
     } finally {
-      await dispatch(setLoading(false));
+      dispatch(setLoading(false));
     }
   };

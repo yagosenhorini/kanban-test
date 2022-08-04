@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+
 import { FieldErrors, useForm } from 'react-hook-form';
 
 import Form from '@Components/Form';
@@ -7,15 +8,12 @@ import Input from '@Components/Form/components/Input';
 
 import { useAuthDispatch, signIn, useAuthState } from '@Contexts/AuthContext';
 
-import { emailValidator } from '@Utils/emailValidator';
-
 import { LoginForm } from './types';
 import * as S from './styled';
 
 const LoginPage = () => {
   const authDispatch = useAuthDispatch();
   const { isLoading } = useAuthState();
-  const [patternEmail, setPatternEmail] = useState(false);
 
   const {
     register,
@@ -23,62 +21,51 @@ const LoginPage = () => {
     formState: { errors },
   } = useForm<LoginForm, FieldErrors>();
 
-  const onSubmit = handleSubmit(async (data: LoginForm) => {
-    try {
-      await authDispatch(signIn(data));
-    } catch (err) {
-      throw new Error('Failed to get user');
-    }
-  });
-
-  const handleValidateEmail = ({ currentTarget }) => {
-    const { value } = currentTarget;
-    const isValid = emailValidator(value);
-
-    if (isValid) return setPatternEmail(true);
-    return setPatternEmail(false);
-  };
+  const onSubmit = handleSubmit(async (data: LoginForm) =>
+    authDispatch(signIn(data))
+  );
 
   return (
     <S.FormWrapper>
       <Form onSubmit={onSubmit}>
         <S.FieldsetForm>
           <Input
-            {...register('email', {
+            {...register('login', {
               required: 'Campo obrigatório',
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                message: 'Email inválido',
-              },
             })}
             type="text"
-            name="email"
-            id="email"
-            error={errors.email?.type}
-            testId="email-input-component"
-            placeholder="exemplo@exemplo.com"
-            onChange={(ev) => handleValidateEmail(ev)}
+            name="login"
+            id="login"
+            error={errors.login?.type}
+            testId="login-input-component"
+            placeholder="Usuário"
           />
-          {!patternEmail && errors?.email && (
-            <S.ErrorMessage className="is--error-message">
-              Email inválido
+          {errors?.login && (
+            <S.ErrorMessage
+              data-testid="error-message"
+              className="is--error-message"
+            >
+              Usuário obrigatório
             </S.ErrorMessage>
           )}
         </S.FieldsetForm>
         <S.FieldsetForm>
           <Input
-            {...register('password', {
+            {...register('senha', {
               required: 'Campo obrigatório',
             })}
             type="password"
-            name="password"
-            id="password"
-            error={errors.password?.type}
+            name="senha"
+            id="senha"
+            error={errors.senha?.type}
             testId="password-input-component"
             placeholder="Senha"
           />
-          {errors?.password && (
-            <S.ErrorMessage className="is--error-message">
+          {errors?.senha && (
+            <S.ErrorMessage
+              data-testid="error-message"
+              className="is--error-message"
+            >
               Senha obrigatória
             </S.ErrorMessage>
           )}
