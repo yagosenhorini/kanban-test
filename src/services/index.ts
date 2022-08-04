@@ -21,7 +21,7 @@ mockApi.interceptors.request.use(
       (error.response?.status === 401 || error.response?.status === 403) &&
       mockApi.defaults.headers.common.authorization
     ) {
-      throw new Error('Sem autorização ou autorização revogada');
+      throw new Error('User session timed out.');
     }
     return Promise.reject(error);
   }
@@ -34,7 +34,7 @@ mockApi.interceptors.response.use(
       (error.response?.status === 401 || error.response?.status === 403) &&
       mockApi.defaults.headers.common.authorization
     ) {
-      throw new Error('Sem autorização ou autorização revogada');
+      throw new Error('User session timed out.');
     }
     return Promise.reject(error);
   }
