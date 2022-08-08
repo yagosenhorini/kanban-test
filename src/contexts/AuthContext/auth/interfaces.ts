@@ -8,4 +8,5 @@ export type InitialStateProps = {
   isSuccess: boolean;
   isError: boolean;
   user: Login | null;
+  isLogged: boolean;
 };

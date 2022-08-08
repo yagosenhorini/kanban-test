@@ -9,9 +9,9 @@ import MockAdapter from 'axios-mock-adapter';
 import LoginPage from '@Pages/Login';
 import { AuthProvider } from '@Contexts/AuthContext';
 import { GlobalTheme as theme } from '@Theme/GlobalTheme';
-import { mockApi } from '@Services/index';
+import { api } from '@Services/index';
 
-const mockAxios = new MockAdapter(mockApi);
+const mockAxios = new MockAdapter(api);
 
 jest.mock('next/router', () => ({
   useRouter: () => ({

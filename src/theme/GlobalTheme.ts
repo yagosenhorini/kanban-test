@@ -12,7 +12,7 @@ const GlobalTheme: DefaultTheme = {
     main: '#256DB1',
     white: '#fff',
     black: '#000',
-    red: '##f80306',
+    red: '#f80306',
     darkRed: '#82090f',
   },
 

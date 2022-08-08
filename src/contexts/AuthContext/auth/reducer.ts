@@ -6,6 +6,7 @@ export const initialState: InitialStateProps = {
   isSuccess: false,
   isError: false,
   user: null,
+  isLogged: false,
 };
 
 // eslint-disable-next-line default-param-last
@@ -19,6 +20,8 @@ export function reducer(state = initialState, { type, payload }) {
       return { ...state, isSuccess: payload };
     case t.USER:
       return { ...state, user: payload };
+    case t.USER_LOGGED:
+      return { ...state, isLogged: payload };
     default:
       return state;
   }

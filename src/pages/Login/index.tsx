@@ -76,7 +76,7 @@ const LoginPage = () => {
             </S.ErrorMessage>
           )}
         </S.FieldsetForm>
-        <Button data-testid="submit-button">
+        <Button isPrimary data-testid="submit-button">
           {isLoading ? 'Enviando...' : 'Enviar'}
         </Button>
       </Form>
