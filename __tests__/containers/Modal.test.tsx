@@ -5,13 +5,18 @@ import configureStore from 'redux-mock-store';
 import { render, act, waitFor } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import userEvent from '@testing-library/user-event';
+import MockAdapter from 'axios-mock-adapter';
 
 import Modal from '@Containers/Modal';
-import { GlobalTheme } from '@Theme/GlobalTheme';
-import * as services from '@Services/index';
+
+import { api } from '@Services/index';
+
 import * as actions from '@Store/ducks/modal/actions';
 import * as cardActions from '@Store/ducks/kanban/actions';
-import { TOKEN } from '@Mocks/tokenMock';
+
+import { GlobalTheme } from '@Theme/GlobalTheme';
+
+const mockAxios = new MockAdapter(api);
 
 describe('<Modal />', () => {
   const middlewares = [thunk];
@@ -52,7 +57,7 @@ describe('<Modal />', () => {
   it('should submit the form', async () => {
     const actionsSpy = jest.spyOn(actions, 'toggleModal');
     const kanbanSpy = jest.spyOn(cardActions, 'createCard');
-    const servicesSpy = jest.spyOn(services, 'setApiToken');
+
     const { findByTestId } = render(componentToRender);
     const $titleInput = await findByTestId('title-input');
     const $contentInput = await findByTestId('content-input');
@@ -69,14 +74,10 @@ describe('<Modal />', () => {
         titulo: 'teste',
       };
 
-      waitFor(() => {
-        services.setApiToken(TOKEN);
-        cardActions.createCard(body);
-        actions.toggleModal();
-      });
+      mockAxios.onPost('/cards', body).reply(200);
     });
 
-    expect(servicesSpy).toBeCalled();
+    expect(mockAxios.history.post.length).toBe(1);
     expect(kanbanSpy).toBeCalled();
     expect(actionsSpy).toBeCalled();
   });
