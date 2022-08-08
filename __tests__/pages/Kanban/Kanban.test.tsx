@@ -10,6 +10,8 @@ import KanbanPage from '@Pages/Kanban';
 import { GlobalTheme } from '@Theme/GlobalTheme';
 import { mockBoardCards } from '@Mocks/boardCardsMock';
 
+jest.useFakeTimers();
+
 describe('<KanbanPage />', () => {
   const middlewares = [thunk];
   const mockStore = configureStore(middlewares);

@@ -47,7 +47,7 @@ const Card = ({ id, titulo, conteudo }: CardProps) => {
   };
 
   return (
-    <S.CardWrapper>
+    <S.CardWrapper data-testid="card-component">
       <S.CardTitle
         data-testid="card-title"
         disabled={isBlocked}
