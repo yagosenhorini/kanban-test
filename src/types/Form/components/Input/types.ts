@@ -10,7 +10,3 @@ export type InputProps = {
   success?: string;
   placeholder: string;
 };
-
-// export type InputType = InputProps &
-//   React.HTMLProps<HTMLInputElement> &
-//   React.HTMLAttributes<HTMLInputElement>;

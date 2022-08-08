@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { HeaderProps } from '@Types/Header';
+import HeaderMenu from '@Components/HeaderMenu';
 
 import * as S from './styled';
 
-const Header = ({ children }: HeaderProps) => (
+const Header = () => (
   <S.Header>
-    {children}
+    <HeaderMenu />
   </S.Header>
 );
 

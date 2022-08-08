@@ -5,4 +5,5 @@ export interface ButtonProps
   disabled?: boolean;
   onPress?: () => void;
   children?: React.ReactNode;
+  isPrimary?: boolean;
 }

@@ -2,12 +2,6 @@ import React from 'react';
 
 import * as S from './styled';
 
-const Footer = () => {
-  const year = new Date().getFullYear();
-
-  return (
-    <S.Footer>&copy;&nbsp;Senhorini Consultoria e Serviços -&nbsp;{year}</S.Footer>
-  )
-}
+const Footer = () => <S.Footer>&copy;&nbsp;Lets Code by Ada</S.Footer>;
 
 export default Footer;

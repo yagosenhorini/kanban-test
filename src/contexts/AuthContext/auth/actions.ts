@@ -1,7 +1,7 @@
 import React from 'react';
 import axios, { AxiosError } from 'axios';
 
-import { mockApi, setApiToken } from '@Services/index';
+import { api, setApiToken } from '@Services/index';
 
 import * as t from './types';
 import { Login } from './interfaces';
@@ -26,11 +26,18 @@ export const setUser = (user: Login) => ({
   payload: user,
 });
 
+export const setLoggedUser = (isLogged: boolean) => ({
+  type: t.USER_LOGGED,
+  payload: isLogged,
+});
+
 export const signIn =
-  (form: Login) => async (dispatch: React.Dispatch<any>) => {
+  (form: Login) => async (dispatch: React.Dispatch<object>) => {
     dispatch(setLoading(true));
     try {
-      await mockApi.post('login', form).then(({ data }) => setApiToken(data));
+      await api.post('login', form).then(({ data }) => setApiToken(data));
+      dispatch(setSuccess(true));
+      dispatch(setLoggedUser(true));
     } catch (err) {
       dispatch(setError(true));
       const error = err as Error | AxiosError;

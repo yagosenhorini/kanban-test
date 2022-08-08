@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Este projeto foi criado com:
 
-## Getting Started
+- Next.js
+- Typescript
+- React Hook Form
+- Styled Components
+- Jest/React Testing Library
+- Tooling de testes para Redux
+- Polished
+- Redux
 
-First, run the development server:
+## Iniciando o Projeto
+
+Para iniciar o projeto, deve-se rodar o seguinte comando:
 
 ```bash
-npm run dev
-# or
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) para ter acesso à pagina de login.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Após efetuar o login, você terá acesso ao board do kanban.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Dentro dele, você encontrará um board com 3 colunas vazias, podendo-se criar um novo card no botão "Novo", que se encontra no header.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Suite de testes
 
-## Learn More
+Para rodar a suite de testes, tem-se dois comandos:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+yarn test
+# ou
+yarn test:watch (para rodar em modo watch)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## O que não foi feito
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Não foi inserido as libs e funcionalidades da DOMPurify e Marked por falta de tempo disponibilizado para a criação dos testes unitários e demais funcionalidades do desafio.

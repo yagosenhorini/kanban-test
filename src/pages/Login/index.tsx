@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useRouter } from 'next/router';
 import { FieldErrors, useForm } from 'react-hook-form';
 
 import Form from '@Components/Form';
@@ -8,8 +8,8 @@ import Input from '@Components/Form/components/Input';
 
 import { useAuthDispatch, signIn, useAuthState } from '@Contexts/AuthContext';
 
-import { LoginForm } from './types';
 import * as S from './styled';
+import { LoginForm } from './types';
 
 const LoginPage = () => {
   const authDispatch = useAuthDispatch();
@@ -21,9 +21,15 @@ const LoginPage = () => {
     formState: { errors },
   } = useForm<LoginForm, FieldErrors>();
 
-  const onSubmit = handleSubmit(async (data: LoginForm) =>
-    authDispatch(signIn(data))
-  );
+  const router = useRouter();
+
+  const onSubmit = handleSubmit(async (data: LoginForm) => {
+    try {
+      authDispatch(signIn(data));
+    } finally {
+      router.push('/kanban');
+    }
+  });
 
   return (
     <S.FormWrapper>
@@ -70,7 +76,7 @@ const LoginPage = () => {
             </S.ErrorMessage>
           )}
         </S.FieldsetForm>
-        <Button data-testid="submit-button">
+        <Button isPrimary data-testid="submit-button">
           {isLoading ? 'Enviando...' : 'Enviar'}
         </Button>
       </Form>

@@ -1,5 +1,6 @@
-export const SET_DATA = 'q2bank/login/SET_DATA';
-export const ERROR = 'q2bank/login/ERROR';
-export const LOADING = 'q2bank/login/LOADING';
-export const SUCCESS = 'q2bank/login/SUCCESS';
-export const USER = 'q2bank/login/USER';
+export const SET_DATA = 'app/login/SET_DATA';
+export const ERROR = 'app/login/ERROR';
+export const LOADING = 'app/login/LOADING';
+export const SUCCESS = 'app/login/SUCCESS';
+export const USER = 'app/login/USER';
+export const USER_LOGGED = 'app/login/USER_LOGGED';

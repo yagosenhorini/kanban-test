@@ -1,23 +1,24 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
 
-import Footer from '@Containers/Footer';
-import Header from '@Containers/Header';
+import { AuthProvider } from '@Contexts/AuthContext';
+
+import store from '@Store/index';
 
 import { GlobalStyle } from '@Theme/GlobalStyle';
 import { GlobalTheme as theme } from '@Theme/GlobalTheme';
-import { AuthProvider } from '@/contexts/AuthContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AuthProvider>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </Provider>
     </AuthProvider>
   );
 }
