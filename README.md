@@ -32,7 +32,3 @@ yarn test
 # ou
 yarn test:watch (para rodar em modo watch)
 ```
-
-## O que não foi feito
-
-Não foi inserido as libs e funcionalidades da DOMPurify e Marked por falta de tempo disponibilizado para a criação dos testes unitários e demais funcionalidades do desafio.
